@@ -366,8 +366,6 @@ justify-content: flex-end;
         transition: right 1s;
         transition-timing-function: ease-in-out;
         border-radius: 0% 0% 0% 20px;
-        margin-right: 0px;
-        
     }
 
     .left-menu a, .right-menu a, .dropdown-content {
