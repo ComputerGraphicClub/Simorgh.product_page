@@ -6,7 +6,7 @@ const logoImg = document.querySelector('.logo');
 
 const navBg = document.querySelector('#nav-bg');
 const nav = document.querySelector('nav');
-const navHomeGradiant = document.querySelector('.home-gradient');
+const navHomeGradiant = document.querySelector('.home-gradient-top');
 let h = window.innerHeight-60;
 let hHomeGradient = window.innerHeight/2;
 
