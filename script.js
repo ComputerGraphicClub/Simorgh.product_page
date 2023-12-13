@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Ajouter un gestionnaire d'événements pour arrêter la propagation du défilement
   contentText.addEventListener("scroll", function (event) {
     event.stopPropagation();
-  });
+  }); 
 
   // Ajouter un gestionnaire d'événements pour détecter le défilement de la souris
   document.body.addEventListener("scroll", function (event) {
