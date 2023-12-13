@@ -965,3 +965,9 @@ nav {
     top: 0;
     z-index: 9999;
   }
+
+
+  .content-image-scroll {
+pointer-events: none;
+
+  }
