@@ -6,9 +6,16 @@ body, html {
     overflow: hidden;
 }
 
+*, html {
+
+    scroll-behavior: smooth !important;
+}
+
 body {
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
+    opacity: 0;
+    transition: opacity 3s;
 }
 
 @font-face {
@@ -27,8 +34,82 @@ body {
     padding: 0;
   }
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* On load page */
+
+  #load-page {
+position: fixed;
+width: 100%;
+height: 100%;
+background-color: black;
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: center;
+align-items: center;
+align-content: normal;
+z-index: 99999999;
+display: none;
+  }
+
+  .lds-ripple {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+  .lds-ripple div {
+    position: absolute;
+    border: 4px solid #fff;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  .lds-ripple div:nth-child(2) {
+    animation-delay: -0.8s;
+  }
+  @keyframes lds-ripple {
+    0% {
+      top: 100px;
+      left: 100px;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    4.9% {
+      top: 100px;
+      left: 100px;
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+    5% {
+      top: 100px;
+      left: 100px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      top: 0px;
+      left: 0px;
+      width: 200px;
+      height: 200px;
+      opacity: 0;
+    }
+  }
+    /* End On load page */
+
+  #content-area {
+  height: 100vh;
+  }
+
 section {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     scroll-snap-align: start;
     overflow: auto;
@@ -39,10 +120,14 @@ section {
 
 .content-section {
     background-color: #CFCECA;
+    transition: filter 2s;
+
 }
 
-.content-section-home {
-    height: 100vh;
+
+
+#content-section-home {
+    height: 100%;
     width: 100%;
     scroll-snap-align: start;
     overflow: auto;
@@ -50,7 +135,7 @@ section {
     position: relative;
 }
 
-.content-section-home img{
+#content-section-home img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -58,7 +143,7 @@ section {
 
 .home-gradient-right {
     width: 40vw;
-    height: 100vh;
+    height: 100%;
     background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(80,80, 80, 0.7) 100%); 
     position: fixed;
     opacity: 1;
@@ -72,7 +157,7 @@ section {
 
 .home-gradient-top {
     width: 100vw;
-    height: 25vh;
+    height: 25%;
     background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%); 
     position: fixed;
     opacity: 1;
@@ -97,6 +182,8 @@ section {
     z-index: 1;
 }
 
+
+
 .content-text-intro {
     width: 50%;
     display: flex;
@@ -104,7 +191,7 @@ section {
     justify-content: flex-end;
     /* align-items: baseline; */
     overflow-y: auto;
-    height: 100vh;
+    height: 100%;
     text-align: right;
     padding-right: 80px;
     padding-left: 10vw;
@@ -123,11 +210,57 @@ section {
         background-image: linear-gradient(90deg, transparent, white);
         border: 0;
         height: 1px;
-        
-    
     }
 
-    .arrow-section-intro, .arrow-section  {
+    .content-text-left {
+        width: 45vw;
+        padding-left: 80px;
+        margin-top: 10%;
+        padding-right: 5vw;
+    }
+
+    .content-text-right {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        /* align-items: flex-start; */
+        overflow-y: auto;
+        height: 100vh;
+        text-align: right;
+        position: relative;
+        padding-right: 80px;
+        padding-left: 5vw;
+        box-sizing: border-box;
+        bottom: 70px;
+    }
+
+    .content-text-right-scroll {
+        padding-top: 10%;
+        padding-bottom: 80px;
+        width: 55vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow-y: auto;
+        height: 100vh;
+        text-align: left;
+        position: relative;
+        padding-right: 80px;
+        padding-left: 1vw;
+        box-sizing: border-box;        
+    }
+
+    .content-text-right .light-text{
+        text-align: justify;
+    }
+
+    .content-text-left p {
+        font-size: 2.4vmax;
+    }
+ 
+
+    .arrow-section-intro, .arrow-section, .arrow-section-text  {
         animation: bounce 2s ease infinite;
         font-size: 3.1vmax;
         margin-top: 40px;
@@ -144,7 +277,7 @@ section {
         color: white;
         }
 
-    .arrow-section {
+    .arrow-section, .arrow-section-text {
         color: black;
     }
 
@@ -160,6 +293,29 @@ section {
     background-color: #c6c3b7;
     overflow: hidden;
 }
+
+/* Logo tab */
+
+.FlexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: calc(60vh);
+    overflow: auto;
+    flex-direction: row;
+}
+
+.FlexContainer div {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    background-color: black;
+}
+
+/* End of logo tab */
 
 
 .content-image img, .content-image-scroll img {
@@ -224,7 +380,7 @@ section {
     overflow-y: auto;
     height: 100vh;
     text-align: left;
-    padding-top: 15vh;
+    padding-top: 10%;  /* à vérifier */
     padding-right: 60vw;
     padding-left: 80px;
     padding-bottom: 80px;
@@ -236,7 +392,7 @@ section {
     width: 50%;
     position: absolute;
     right: 0;
-    height: 100vh;
+    height: 100%;
     background-color: #c6c3b7;
     overflow: hidden;
 }
@@ -257,6 +413,20 @@ section {
    font-size: 1vmax;
    font-family: roobert-light;
 }
+
+.light-text-sub {
+    font-size: 1vmax;
+    font-family: roobert-light;
+    color: #686666;
+ }
+
+.light-text-title {
+    font-size: 1.2vmax;
+    font-family: roobert;
+    padding-top: 0.5vh;
+}
+
+
 
 nav {
     position: fixed;
@@ -289,8 +459,7 @@ nav {
     width: 100vw;
     height: 56px;
     transition: opacity 800ms;
-     background-color: rgb(46, 40, 34);
-    /* background-color: rgb(0, 0, 0,0.85); */
+     background-color: rgba(0,0,0,0.85);
     transition-timing-function: ease-in-out;
     z-index: -1;
     opacity: 0;
@@ -315,7 +484,7 @@ nav {
 
 
 
-.left-menu {
+#left-menu {
     display: flex;
     align-items: center;
     width: 100%;
@@ -325,16 +494,14 @@ nav {
     transition: margin-top 800ms;
 }
 
-.right-menu {
-justify-content: flex-end;
-}
 
-.left-menu a:not(.menu-button) {
+
+#button:not(.menu-button) {
     /* width: calc(50vw/7); */
     padding-left: 40px;
 }
 
-.left-menu a, .right-menu a, .dropdown {
+#button, .dropdown {
     color: #fff;
     text-decoration: none;
     margin: 0;
@@ -343,11 +510,7 @@ justify-content: flex-end;
     font-size: 19px;
 }
 
-.right-menu a {
-  
-    padding: 5px 25px;
-    /* margin-left: 0px; */
-}
+
 
 .menu-button {
     border: solid white 1px;
@@ -360,11 +523,7 @@ justify-content: flex-end;
 
 
 
-.right-menu {
-    display: flex;
-    align-items: center;
-    margin-right: 80px;
-}
+
 
 
 .dropdown {
@@ -411,12 +570,14 @@ justify-content: flex-end;
     font-size: 15px;
   }
 
+ 
+
   .dropdown-content p:hover {
     color: #438931;
     transition: color 200ms;
   }
 
-  .dropdown a:hover, .left-menu a:hover {
+  .dropdown a:hover, #left-menu a:hover {
     color: #438931;
     transition: color 400ms;
   }
@@ -484,14 +645,14 @@ justify-content: flex-end;
 
 /* Styles pour les appareils mobiles */
 @media only screen and (max-width: 600px) {
-    .left-menu, .right-menu {
+    #left-menu {
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 56px;
+        top: 78px;
         right: -100vw;
-        width: 100vw;
-        height: calc(100vh - 56px);
+        width: 50vw;
+        height: calc(100vh - 78px);
         background: rgba(0,0,0,0.85);
         /* background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 55%); */
         text-align: center;
@@ -502,24 +663,31 @@ justify-content: flex-end;
         border-radius: 0% 0% 0% 20px;
         margin-right: 0px;
         align-items: end;
+        margin-top: 0;
         
     }
 
-    .left-menu a, .right-menu a, .dropdown-content {
+    #button, .dropdown-content {
         padding-right: 6vw;
         padding-left: 6vw;
-        padding-bottom: 5px;
+        padding-bottom: 8px;
         /* width: 100%; */
         text-align: right;
         box-sizing: border-box;
     }
 
-    .left-menu {
+    #left-menu {
         justify-content: start;
     }
 
-    .left-menu a, .right-menu a {
-        font-size: 3.5vh;
+    #button, .dropdown  {
+        font-size: 3.3vh;
+    }
+
+    .dropdown-content p {
+        font-size: 2.3vh;
+        padding-top: 2px;
+        padding-bottom: 3px;
     }
 
     .dropdown {
@@ -540,10 +708,7 @@ justify-content: flex-end;
         display: flex;
     }
 
-    .right-menu {
-        display: none;
-    }
-
+   
     .menu-button {
     margin-left: 0px!important;
     }
@@ -558,12 +723,23 @@ justify-content: flex-end;
         color: #a6a5a2;
     }
 
-    .dropdown-content p {
-        font-size: 2.5vh;
+   
+    .light-text {
+        font-size: 1.6vmax;
     }
 
-    nav:hover #nav-bg {
-        height: 56px;
+    .light-text-sub {
+        font-size: 1.4vmax;
+    }
+
+    .light-text-title {
+        font-size: 1.6vmax; 
+    }
+
+ 
+
+    #nav-bg {
+        height: 78px;
     }
 
     .dropdown-content hr {
@@ -575,7 +751,7 @@ justify-content: flex-end;
         position: absolute;
         left: 0;
         z-index: 1;
-        height: 50vh;
+        height: 50%;
         background-color: #c6c3b7;
         overflow: hidden;
         border-radius: 0 0 30px 30px;
@@ -606,7 +782,7 @@ justify-content: flex-end;
         background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0, 0.5) 100%);
         position: absolute;
         opacity: 1;
-        bottom: 50vh;
+        bottom: 50%;
         right: 0;
         transition: opacity 300ms;
         transition-timing-function: ease-in-out;
@@ -633,8 +809,8 @@ justify-content: flex-end;
 
     .content-image {
         width: 100vw;
-        height: calc(50vh - 60px);
-        margin-top: 60px;
+        height: calc(50% - 60px);
+        padding-top: 78px;
         background-color: #c6c3b7;
         overflow: hidden;
         position: absolute;
@@ -649,7 +825,7 @@ justify-content: flex-end;
         justify-content: end;
         /* align-items: flex-start; */
         overflow-y: auto;
-        height: 100vh;
+        /*  height: 100vh; à vérifier*/
         text-align: center;
         position: relative;
         padding-top: 55vh;
@@ -659,11 +835,20 @@ justify-content: flex-end;
         bottom: 20px;
     }
 
+
     .arrow-section-intro, .arrow-section {
         animation: bounce 2s ease infinite;
         font-size: 7vmax;
         margin-top: 20px;
         animation-delay: 5s;
+    }
+
+    .arrow-section-text {
+        animation: bounce 2s ease infinite;
+        font-size: 7vmax;
+        margin-top: 0px;
+        animation-delay: 5s;
+        margin-bottom: 3vw;
     }
 
     @keyframes bounce {
@@ -700,7 +885,7 @@ justify-content: flex-end;
 
     .home-gradient-right {
         width: 60vw;
-        height: 100vh;
+        height: 100%;
         background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(80,80, 80, 0.4) 100%);
     }
 
@@ -722,6 +907,43 @@ justify-content: flex-end;
 
     .menu-button {
         border: 0;
+    }
+
+    .content-container-full-text {
+        flex-direction: column;
+        height: 100%;
+        justify-content: flex-end;
+    }
+
+    .content-text-left {
+        width: unset;
+        padding-left: 6vw;
+        margin-top: 120px;
+        padding-right: 6vw;
+    }
+
+    .content-text-right {
+        width: unset;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        /* align-items: flex-start; */
+        overflow-y: auto;
+        height: unset;
+        text-align: right;
+        position: unset;
+        padding-right: 6vw;
+        padding-left: 6vw;
+        box-sizing: border-box;
+        bottom: 0px;
+    }
+
+    .content-text-right .light-text {
+        text-align: left;
+    }
+
+    section {
+        align-items: unset;
     }
 
 }
