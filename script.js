@@ -30,14 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
   var contentText = document.querySelector(".content-text-scroll");
 
   // Ajouter un gestionnaire d'événements pour arrêter la propagation du défilement
-  contentText.addEventListener("scroll", function (event) {
-    event.stopPropagation();
-  }); 
+  // contentText.addEventListener("scroll", function (event) {
+  //   event.stopPropagation();
+  // }); 
 
   // Ajouter un gestionnaire d'événements pour détecter le défilement de la souris
   document.body.addEventListener("scroll", function (event) {
 
-    console.log("hello");
+    
     // Vérifier si le curseur est sur la div "content-text"
     var isOnContentText = event.target.closest(".content-text-scroll") !== null;
 
