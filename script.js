@@ -328,25 +328,5 @@ if (document.title === 'Simorgh - About' || document.title === 'Simorgh - FAQ' |
 
 
 
-// let lastScrollTop = 0;
-// contentText[0].onscroll = (e)=>{
-// if (contentText[0].scrollTop < lastScrollTop){
-  
-//       return;
-//    } 
-//    lastScrollTop = contentText[0].scrollTop <= 0 ? 0 : contentText[0].scrollTop;
-//     if (contentText[0].scrollTop + contentText[0].offsetHeight>= contentText[0].scrollHeight ){
-//        console.log("End");
-//     }
-// }
 
-document.body.addEventListener("scroll", function (event) {
-
-  console.log("Max Height=" + contentTextScroll[0].scrollHeight + " ScrollTop = " +contentTextScroll[0].scrollTop);
-  
-  // console.log(contentTextScroll[0].offsetHeight);
-
-
-
-});
 

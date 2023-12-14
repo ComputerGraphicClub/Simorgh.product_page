@@ -294,25 +294,50 @@ section {
     overflow: hidden;
 }
 
-/* Logo tab */
+/* Partners tab */
 
 .FlexContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    align-content: center;
+    align-content: flex-end;
     width: 100%;
     height: calc(60vh);
     overflow: auto;
     flex-direction: row;
 }
 
-.FlexContainer div {
-    width: 100px;
-    height: 100px;
-    margin: 5px;
-    background-color: black;
+.partners-title {
+    position: absolute;
+    }
+    
+.partners-list {
+    width: 100vw!important;
+    padding-left: 80px!important;
+ }
+
+ .partners-item {
+    width: calc((100% - 36px) / 3);
+    height: 7vmax;
+    margin: 6px;
+ }
+
+ .partners-logo {
+    height: 7vmax;
+    width: 7vmax;
+    background-color: #b6b6b6;
+    border-radius: 50%;
+}
+
+.partners-text {
+        width: calc(100% - 8vmax);
+        height: 7vmax;
+        z-index: 9999999999;
+        position: relative;
+        top: -7vmax;
+        left: 8vmax;
+        text-align: left;
 }
 
 /* End of logo tab */
@@ -643,6 +668,9 @@ nav {
 
 
 
+
+
+
 /* Styles pour les appareils mobiles */
 @media only screen and (max-width: 600px) {
     #left-menu {
@@ -944,6 +972,21 @@ nav {
 
     section {
         align-items: unset;
+    }
+
+    .partners-item {
+        width: calc(100% - 12px);
+        height: 7vmax;
+        margin: 6px;
+     }
+
+     .FlexContainer {
+        align-content: flex-start;
+     }
+
+     .partners-list {
+        width: 100vw!important;
+        padding-left: 6vw!important;
     }
 
 }
