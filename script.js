@@ -4,6 +4,8 @@ const sectionBox = document.querySelectorAll('.content-section');
 const dropDowntMenu = document.querySelectorAll('.dropdown-content');
 const logoImg = document.querySelector('.logo');
 
+const contentTextScroll = document.querySelectorAll(".content-text-scroll");
+
 
 const navBg = document.querySelector('#nav-bg');
 const nav = document.querySelector('nav');
@@ -30,10 +32,10 @@ document.addEventListener("DOMContentLoaded", function () {
   var contentText = document.querySelector(".content-text-scroll");
 
   // Ajouter un gestionnaire d'événements pour arrêter la propagation du défilement
-  // contentText.addEventListener("scroll", function (event) {
-  //   event.stopPropagation();
-  // }); 
-  
+  contentText.addEventListener("scroll", function (event) {
+    event.stopPropagation();
+  }); 
+
 
   // Ajouter un gestionnaire d'événements pour détecter le défilement de la souris
   document.body.addEventListener("scroll", function (event) {
@@ -322,3 +324,29 @@ if (document.title === 'Simorgh - About' || document.title === 'Simorgh - FAQ' |
   navHomeGradiant.style.opacity = "0";
 
 };
+
+
+
+
+// let lastScrollTop = 0;
+// contentText[0].onscroll = (e)=>{
+// if (contentText[0].scrollTop < lastScrollTop){
+  
+//       return;
+//    } 
+//    lastScrollTop = contentText[0].scrollTop <= 0 ? 0 : contentText[0].scrollTop;
+//     if (contentText[0].scrollTop + contentText[0].offsetHeight>= contentText[0].scrollHeight ){
+//        console.log("End");
+//     }
+// }
+
+document.body.addEventListener("scroll", function (event) {
+
+  console.log("Max Height=" + contentTextScroll[0].scrollHeight + " ScrollTop = " +contentTextScroll[0].scrollTop);
+  
+  // console.log(contentTextScroll[0].offsetHeight);
+
+
+
+});
+
