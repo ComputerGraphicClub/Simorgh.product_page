@@ -1044,11 +1044,23 @@ pointer-events: none;
         flex-direction: column-reverse;
     }
 
+    .partners-title {
+        position: relative;
+    }
+
+    .content-container.content-container--direction-column {
+        flex-direction: column;
+    }
+
     .content-text {
         padding-top: 2rem !important;
         height: auto !important;
     }
 
+    .content-text-right-scroll {
+        width: 100% !important;
+        height: auto !important;
+    }
 
     /*-----*/
     /*service section*/
@@ -1086,4 +1098,27 @@ pointer-events: none;
         transform: translate(0, -100%);
         display: none;
     }
+
+
+    /*
+        about page
+    */
+    .content-image {
+        height: auto !important;
+        position: relative;
+        padding-top: 0;
+    }
+    .content-container.content-container-full-text {
+        flex-direction: column;
+    }
+    .partners-list {
+        height: auto !important;
+    }
+    .FlexContainer {
+        height: auto !important;
+        overflow: visible;
+    }
+    /*
+        END about page
+    */
 }
