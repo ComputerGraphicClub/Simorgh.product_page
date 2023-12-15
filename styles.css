@@ -1075,6 +1075,8 @@ pointer-events: none;
 
     .content-image-scroll {
         height: var(--content-image-scroll-height);
+        position: sticky;
+        top: 0 !important;
     }
 
     .gradient-bottom-scroll {
