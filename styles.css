@@ -1086,8 +1086,3 @@ pointer-events: none;
         display: none;
     }
 }
-
-* {
-    filter: none !important;
-    overflow: auto !important;
-}
