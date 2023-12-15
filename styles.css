@@ -1030,13 +1030,47 @@ pointer-events: none;
         scroll-snap-type: none;
     }
 
+    .content-area {
+        overflow: auto;
+        height: auto !important;
+    }
+
     section {
         height: auto;
     }
 
+    .content-container {
+        flex-direction: column-reverse;
+    }
+
+    .content-text {
+        padding-top: 2rem !important;
+        height: auto !important;
+    }
+
+
+    /*-----*/
+    /*service section*/
+    #services > .content-container {
+        flex-direction: column;
+    }
+
+    #services .content-text {
+        bottom: 0;
+        padding-bottom: 2rem;
+    }
+
+    .content-image.content-image-overview {
+        height: auto !important;
+        position: relative;
+    }
+    /* END service section*/
+    /*-----*/
+
+
     .content-text-scroll {
         height: auto !important;
-        padding-top: calc( var(--content-image-scroll-height) + 2rem)!important;
+        padding-top: 2rem !important;
     }
 
     .content-image-scroll {
@@ -1045,7 +1079,13 @@ pointer-events: none;
 
     .gradient-bottom-scroll {
         top: var(--content-image-scroll-height);
+        bottom: auto;
         transform: translate(0, -100%);
         display: none;
     }
+}
+
+* {
+    filter: none !important;
+    overflow: auto !important;
 }
