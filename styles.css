@@ -1014,3 +1014,38 @@ nav {
 pointer-events: none;
 
   }
+
+
+/**
+  Mobil layout for regular scroll navigation
+  without _slide effect_
+*/
+
+@media (max-width: 600px) {
+    :root {
+        --content-image-scroll-height: 80vw;
+    }
+
+    body {
+        scroll-snap-type: none;
+    }
+
+    section {
+        height: auto;
+    }
+
+    .content-text-scroll {
+        height: auto !important;
+        padding-top: calc( var(--content-image-scroll-height) + 2rem)!important;
+    }
+
+    .content-image-scroll {
+        height: var(--content-image-scroll-height);
+    }
+
+    .gradient-bottom-scroll {
+        top: var(--content-image-scroll-height);
+        transform: translate(0, -100%);
+        display: none;
+    }
+}
