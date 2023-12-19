@@ -16,16 +16,17 @@ body {
     overflow-y: scroll;
     opacity: 0;
     transition: opacity 3s;
+    background-color: #CFCECA;
 }
 
 @font-face {
     font-family: roobert;
-    src: url(font/Roobert-Regular.otf);
+    src: url(font/Roobert-Regular.woff);
   }
 
   @font-face {
     font-family: roobert-light;
-    src: url(font/Roobert-Light.otf);
+    src: url(font/Roobert-Light.woff);
   }
 
 * {
@@ -133,6 +134,7 @@ section {
     overflow: auto;
     display: flex;
     position: relative;
+    transition: filter 2s;
 }
 
 #content-section-home img{
@@ -341,6 +343,10 @@ section {
         text-align: left;
 }
 
+.mobile-margin-text {
+    display: none;
+}
+
 /* End of logo tab */
 
 
@@ -425,6 +431,7 @@ section {
 
 
 
+
 .section-title {
     color: #347125;
     font-size: 1.3vmax;
@@ -436,8 +443,13 @@ section {
 }
 
 .light-text {
-   font-size: 1vmax;
+   /* font-size: 1vmax; */
+   font-size: 1.2vmax;
    font-family: roobert-light;
+}
+
+.mission-text {
+    font-size: 1vmax!important;
 }
 
 .light-text-sub {
@@ -548,7 +560,19 @@ nav {
 
 
 
+.menu-active {
+    display: inline;
+    border-bottom: solid 1px green;
+}
 
+.menu-active-home {
+    display: inline;
+    border-bottom: unset;
+}
+
+.menu-active-mobile {
+    display: none;
+}
 
 
 
@@ -710,11 +734,11 @@ nav {
     }
 
     #button, .dropdown  {
-        font-size: 3.3vh;
+        font-size: 5.7vw;
     }
 
     .dropdown-content p {
-        font-size: 2.3vh;
+        font-size: 4vw;
         padding-top: 2px;
         padding-bottom: 3px;
     }
@@ -735,6 +759,7 @@ nav {
 
     .menu-icon {
         display: flex;
+        margin-left: 50%;
     }
 
 
@@ -754,18 +779,43 @@ nav {
 
 
     .light-text {
-        font-size: 1.6vmax;
+        font-size: 4.2vw;
+    }
+
+    .bold-text {
+        font-size: 4.2vw;
+        font-family: 'roobert-light';
+    }
+
+    .mobile-margin-text {
+    display: block;
+    }
+
+    .mission-text {
+        font-size: 4.2vw!important;
+        margin-bottom: 10px;
     }
 
     .light-text-sub {
-        font-size: 1.4vmax;
+        font-size: 3vw;
     }
 
     .light-text-title {
-        font-size: 1.6vmax;
+        font-size: 4.2vw;
+        font-family: roobert-light;
     }
 
+    .menu-active {
+        border-bottom: unset;
+    }
 
+    .menu-active-home {
+        border-bottom: unset;
+    }
+
+    .menu-active-mobile {
+        display: inline;
+    }
 
     #nav-bg {
         height: 78px;
@@ -783,7 +833,7 @@ nav {
         height: 50%;
         /* background-color: #c6c3b7; */
         overflow: hidden;
-        border-radius: 0 0 30px 30px;
+        /* border-radius: 0 0 30px 30px; */
         box-shadow: -1px 8px 5px -3px rgba(102,102,102,0.75);
     }
 
@@ -821,7 +871,7 @@ nav {
     }
 
     .section-title {
-        font-size: 2.4vmax;
+        font-size: 4.2vw;
     }
 
     .logo-service-SHM, .logo-service-NDT, .logo-service-Mseis {
@@ -843,7 +893,7 @@ nav {
         /* background-color: #c6c3b7; */
         overflow: hidden;
         position: absolute;
-        border-radius: 0 0 30px 30px;
+        /* border-radius: 0 0 30px 30px; */
         box-shadow: -1px 8px 5px -3px rgba(102,102,102,0.75);
     }
 
@@ -855,7 +905,7 @@ nav {
         /* align-items: flex-start; */
         overflow-y: auto;
         /*  height: 100vh; à vérifier*/
-        text-align: center;
+        text-align: left;
         position: relative;
         padding-top: 55vh;
         padding-right: 6vw;
@@ -868,16 +918,20 @@ nav {
     .arrow-section-intro, .arrow-section {
         animation: bounce 2s ease infinite;
         font-size: 7vmax;
-        margin-top: 20px;
+        margin-top: 40px;
+        margin-bottom: 4vw;
         animation-delay: 5s;
+        text-align: right;
+        font-family: 'roobert-light';
     }
 
     .arrow-section-text {
         animation: bounce 2s ease infinite;
         font-size: 7vmax;
-        margin-top: 0px;
+        margin-top: 40px;
         animation-delay: 5s;
-        margin-bottom: 3vw;
+        margin-bottom: 4vw;
+        font-family: 'roobert-light';
     }
 
     @keyframes bounce {
@@ -910,12 +964,13 @@ nav {
     .content-text-intro .bold-text{
         font-size: 3.2vmax;
         font-family: 'roobert-light';
+        text-align: right;
     }
 
     .home-gradient-right {
-        width: 60vw;
+        width: 100vw;
         height: 100%;
-        background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(80,80, 80, 0.4) 100%);
+        background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(80,80, 80, 0.6) 100%);
     }
 
 
@@ -940,7 +995,7 @@ nav {
 
     .content-container-full-text {
         flex-direction: column;
-        height: 100%;
+        height: auto;
         justify-content: flex-end;
     }
 
@@ -978,7 +1033,7 @@ nav {
     .partners-item {
         width: calc(100% - 12px);
         height: 7vmax;
-        margin: 6px;
+        margin: 6px 6px 30px 6px;
      }
 
      .FlexContainer {
@@ -990,9 +1045,62 @@ nav {
         padding-left: 6vw!important;
     }
 
+    .content-image-overview img {
+
+        padding-top: 80px;
+        padding-bottom: 0;
+    }
+
+    .content-text-left p {
+        font-size: 5vw;
+    }
+
+    h2.section-title {
+        text-align: left;
+    }
+
+    p.bold-text {
+        text-align: left;
+        font-size: 5vw;
+    }
+
+    .bold-text-service-mobile {
+     font-size: 4.2vw!important;
+    }
+
+    .arrow-intro {
+        margin-top: 0!important;
+        margin-bottom: 3vw!important;
+    }
+
+    .content-text-left.partners-title {
+        margin-top: 120px;
+    }
+
+    .content-container-end {
+     padding-bottom: 4rem;
+    }
+
+    .content-container-service-end {
+        padding-bottom: 7rem;
+       }
+
+    .content-faq-list {
+        padding-right: 14vw;
+        padding-left: 6vw;
+    }
+
+    .content-contact-list {
+        padding-left: 6vw;
+    }
+
+    .content-contact-list > .light-text-sub {
+        font-size: 3.8vw;
+    }
+
 }
 
-
+/* End of mobile CSS */
 
 /* mobile landscape orientation */
 
@@ -1038,6 +1146,7 @@ pointer-events: none;
 
     section {
         height: auto;
+        display: unset;
     }
 
     .content-container {
@@ -1053,7 +1162,12 @@ pointer-events: none;
     }
 
     .content-text {
-        padding-top: 2rem !important;
+        padding-top: 4rem !important;
+        height: auto !important;
+    }
+
+    .content-text-right {
+        padding-top: 4rem !important;
         height: auto !important;
     }
 
@@ -1075,7 +1189,9 @@ pointer-events: none;
 
     .content-image.content-image-overview {
         height: auto !important;
-        position: relative;
+        position: sticky;
+        top: 0!important;
+        z-index: 2;
     }
     /* END service section*/
     /*-----*/
@@ -1083,7 +1199,7 @@ pointer-events: none;
 
     .content-text-scroll {
         height: auto !important;
-        padding-top: 2rem !important;
+        padding-top: 4rem !important;
     }
 
     .content-image-scroll {
@@ -1104,9 +1220,11 @@ pointer-events: none;
         about page
     */
     .content-image {
-        height: auto !important;
-        position: relative;
+        height: var(--content-image-scroll-height)!important;
+        position: sticky;
+        top: 0!important;
         padding-top: 0;
+        z-index: 2;
     }
     .content-container.content-container-full-text {
         flex-direction: column;
@@ -1122,3 +1240,5 @@ pointer-events: none;
         END about page
     */
 }
+
+

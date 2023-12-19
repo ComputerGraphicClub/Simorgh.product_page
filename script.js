@@ -1,8 +1,14 @@
 const menuIcon = document.querySelector('.menu-trigger');
 const leftMenu = document.querySelector('#left-menu');
 const sectionBox = document.querySelectorAll('.content-section');
+const sectionBoxHome = document.querySelector('#content-section-home');
+
 const dropDowntMenu = document.querySelectorAll('.dropdown-content');
 const logoImg = document.querySelector('.logo');
+
+const menuActive = document.querySelectorAll('.menu-active-home');
+
+
 
 const contentTextScroll = document.querySelectorAll(".content-text-scroll");
 
@@ -23,6 +29,7 @@ for (let i = 0; i < sectionBox.length; i++) {
   sectionBox[i].style.filter = "blur(0px)";
 }
 
+sectionBoxHome.style.filter = "blur(0px)";
 
 ////////////////////////////////////////////////////
 /// Enable scroll text inside ScrollSnap section ///
@@ -97,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
           dropDowntMenu[2].style.backgroundColor = "rgba(0,0,0,0.85)"
           logoImg.style.width = "65px";
           logoImg.style.top = "-12px";
+          menuActive[0].style.borderBottom = "1px solid green";
         } else {
           leftMenu.style.marginTop = "20px";
           navBg.style.opacity = "0";
@@ -105,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
           dropDowntMenu[2].style.backgroundColor = "rgba(46, 40, 34,0)"
           logoImg.style.width = "280px";
           logoImg.style.top = "10px";
+          menuActive[0].style.borderBottom = "unset";
         }
       }
 
@@ -137,6 +146,8 @@ menuIcon.addEventListener('click', function () {
     for (let i = 0; i < sectionBox.length; i++) {
       sectionBox[i].style.filter = sectionBox[i].style.filter === 'blur(0px)' ? 'blur(10px)' : 'blur(0px)';
     }
+
+    sectionBoxHome.style.filter = sectionBoxHome.style.filter === 'blur(0px)' ? 'blur(10px)' : 'blur(0px)';
   }
 
 });
